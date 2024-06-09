@@ -11,6 +11,7 @@ urlpatterns = [
 
     path('kitchen/', include('kitchen.urls')),
     path('banner/', include('banner.urls')),
+    path('support/', include('support.urls')),
     
 ]
 
