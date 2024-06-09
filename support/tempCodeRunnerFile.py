@@ -13,3 +13,5 @@ class Contact(models.Model):
     def __str__(self) -> str:
         return f'Name:{self.name}, Email:{self.email}, Message:{self.message}'
     
+from django.db import connection
+print(connection.queries)
