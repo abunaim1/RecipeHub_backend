@@ -6,3 +6,5 @@ class Banner(models.Model):
     description = models.TextField()
     image = models.ImageField(upload_to='uploads/banner/', blank=True, null=True)
 
+    def __str__(self) -> str:
+        return self.title

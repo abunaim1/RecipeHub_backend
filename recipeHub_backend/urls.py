@@ -12,7 +12,7 @@ urlpatterns = [
     path('kitchen/', include('kitchen.urls')),
     path('banner/', include('banner.urls')),
     path('support/', include('support.urls')),
-    
+    path('promotions/', include('promotions.urls'))
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
