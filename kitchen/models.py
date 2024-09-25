@@ -10,4 +10,10 @@ class Recipe(models.Model):
     region = models.CharField(max_length=50)
     image = models.ImageField(upload_to='uploads/kitchen/', blank=True, null=True)
     creation_date = models.DateTimeField(auto_now_add=True)
+    seasonal = models.CharField(max_length=150, null=True, blank=True)
+
+    def __str__(self):
+        return self.title
+
+
 

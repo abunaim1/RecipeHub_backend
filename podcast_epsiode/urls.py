@@ -3,9 +3,9 @@ from django.urls import path, include
 from . import views
 
 router = DefaultRouter()
-router.register('list', views.PodcastViewset)
+router.register('list/normal', views.PodcastEpisodeNormalViewset)
+router.register('list/premium', views.PodcastEpisodePremiumViewset)
 
 urlpatterns = [
     path('', include(router.urls)),
-
 ]

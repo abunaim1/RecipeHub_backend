@@ -8,6 +8,5 @@ router.register('title', views.BannerViewset)
 
 urlpatterns = [
     path('', include(router.urls)),
-
 ]
 

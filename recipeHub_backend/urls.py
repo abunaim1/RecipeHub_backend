@@ -9,12 +9,17 @@ urlpatterns = [
     path('auth/', include('authentication.api.urls')),
     path('user/', include('user.urls')),
 
-    path('kitchen/', include('kitchen.urls')),
     path('banner/', include('banner.urls')),
+    path('kitchen/', include('kitchen.urls')),
+    path('comment/', include('comments.urls')),
     path('support/', include('support.urls')),
     path('promotions/', include('promotions.urls')),
     path('podcast/episode/', include('podcast_epsiode.urls')),
-
+    path('podcast/', include('podcast.urls')),
+    path('chat/', include('chatAPI.urls')),
+    path('popular/', include('popularuty.urls')),
+    path('rating/', include('ratings.urls')),
+    path('subscription/', include('subscription.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

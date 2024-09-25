@@ -16,9 +16,8 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 CORS_ORIGIN_ALLOW_ALL = True
 CSRF_TRUSTED_ORIGINS = [
-    'http://127.0.0.1:8000/',
+    'http://127.0.0.1:8000',
     'https://recipehub-backend-ya12.onrender.com',
-    
 ]
 
 AUTH_USER_MODEL = 'user.CustomUser'
@@ -26,6 +25,9 @@ AUTH_USER_MODEL = 'user.CustomUser'
 # Application definition
 
 INSTALLED_APPS = [
+    'channels',
+    'daphne',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -33,26 +35,28 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+
     'rest_framework',
     'rest_framework_simplejwt.token_blacklist',
 
+
     'authentication.apps.AuthenticationConfig',
 
+
+    'user',
     'banner',
-    'comments',
     'kitchen',
+    'comments',
     'order',
     'podcast',
     'podcast_epsiode',
-    'popular_recipe',
     'popularuty',
     'promotions',
     'ratings',
     'subscription',
-    'trending',
-    'payment',
-    'user',
     'support',
+    'chatAPI',
+
 
     "corsheaders",
 ]
@@ -105,8 +109,8 @@ SIMPLE_JWT = {
 }
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
     "corsheaders.middleware.CorsMiddleware",
+    'django.middleware.security.SecurityMiddleware',
 
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -134,19 +138,33 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'recipeHub_backend.wsgi.application'
+# WSGI_APPLICATION = 'recipeHub_backend.wsgi.application'
+ASGI_APPLICATION = 'recipeHub_backend.asgi.application'
+
 
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+DATABASES = {  
+    'default': {  
+        'ENGINE': 'django.db.backends.mysql',  
+        'NAME': 'recipeDB',  
+        'USER': 'root',  
+        'PASSWORD': 'password',  
+        'HOST': '127.0.0.1',  
+        'PORT': '3306',  
+        'OPTIONS': {  
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"  
+        }  
+    }  
+} 
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -198,3 +216,6 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'aabunnaim@gmail.com'
 EMAIL_HOST_PASSWORD = 'zuvbkyxloadtcpwv'
+
+
+

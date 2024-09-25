@@ -1,3 +1,23 @@
 from django.db import models
+from subscription.models import Subscription
 
-# Create your models here.
+class Podcast(models.Model):
+    name = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='uploads/podcast/')
+    keyword = models.CharField(max_length=20)
+    description = models.TextField()
+
+    def __str__(self):
+        return self.name
+    
+class PremimumPodcast(models.Model):
+    name = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='uploads/podcast/')
+    keyword = models.CharField(max_length=20)
+    description = models.TextField()
+    subscription = models.OneToOneField(Subscription, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
+
+
