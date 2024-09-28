@@ -25,6 +25,7 @@ AUTH_USER_MODEL = 'user.CustomUser'
 # Application definition
 
 INSTALLED_APPS = [
+    'django_htmx',
     'channels',
     'daphne',
 
@@ -125,7 +126,7 @@ ROOT_URLCONF = 'recipeHub_backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [ ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -218,4 +219,11 @@ EMAIL_HOST_USER = 'aabunnaim@gmail.com'
 EMAIL_HOST_PASSWORD = 'zuvbkyxloadtcpwv'
 
 
-
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("127.0.0.1", 6379)],
+        },
+    },
+}

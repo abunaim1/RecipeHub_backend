@@ -32,7 +32,6 @@ class ReactionSerializers(serializers.ModelSerializer):
     creation_date = serializers.DateTimeField(source='kitchen.creation_date', read_only=True)
     seasonal = serializers.CharField(source='kitchen.seasonal', read_only=True)
 
-
     class Meta:
         model = Reaction
         fields = '__all__'
