@@ -19,5 +19,5 @@ class Comment(models.Model):
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, blank=True, null=True)
     
     def __str__(self):
-        return f'This user {self.user} comment {self.text} on this recipe {self.recipe}'
+        return f'{self.user} : comment {self.text}'
 
