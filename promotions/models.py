@@ -4,6 +4,7 @@ from django.db import models
 
 class Promotions(models.Model):
     title = models.CharField(max_length=100)
+    price = models.IntegerField(blank=True, null=True)
     description = models.TextField()
     image = models.ImageField(upload_to='uploads/promotions/')
     product_count = models.IntegerField()

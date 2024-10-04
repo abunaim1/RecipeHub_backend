@@ -18,6 +18,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 CSRF_TRUSTED_ORIGINS = [
     'http://127.0.0.1:8000',
     'https://recipehub-backend-ya12.onrender.com',
+    'https://sandbox.sslcommerz.com',
 ]
 
 AUTH_USER_MODEL = 'user.CustomUser'
@@ -25,7 +26,8 @@ AUTH_USER_MODEL = 'user.CustomUser'
 # Application definition
 
 INSTALLED_APPS = [
-    'django_htmx',
+    'debug_toolbar',
+
     'channels',
     'daphne',
 
@@ -60,6 +62,10 @@ INSTALLED_APPS = [
 
 
     "corsheaders",
+]
+
+INTERNAL_IPS = [
+    '127.0.0.1',
 ]
 
 
@@ -110,6 +116,8 @@ SIMPLE_JWT = {
 }
 
 MIDDLEWARE = [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
+
     "corsheaders.middleware.CorsMiddleware",
     'django.middleware.security.SecurityMiddleware',
 
@@ -227,3 +235,4 @@ CHANNEL_LAYERS = {
         },
     },
 }
+

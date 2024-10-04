@@ -13,7 +13,7 @@ class Reaction(models.Model):
 
 class Comment(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, blank=True, null= True)
-    text = models.TextField(blank=True, null= True)
+    comment_text = models.TextField(blank=True, null= True)
     image = models.ImageField(upload_to='uploads/comment/', blank=True, null=True)
     creation_date = models.DateTimeField(auto_now_add=True, blank=True, null= True)
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, blank=True, null=True)

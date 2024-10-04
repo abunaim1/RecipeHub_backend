@@ -18,8 +18,13 @@ urlpatterns = [
     path('podcast/', include('podcast.urls')),
     path('chat/', include('chatAPI.urls')),
     path('popular/', include('popularuty.urls')),
+    path('order/', include('order.urls')),
     path('rating/', include('ratings.urls')),
     path('subscription/', include('subscription.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns += [path('__debug__/', include(debug_toolbar.urls))]
