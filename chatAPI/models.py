@@ -7,8 +7,8 @@ from django.dispatch import receiver
 class Profile(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, blank=True, null=True)  # Changed to OneToOneField
     full_name = models.CharField(max_length=100, null=True, blank=True)
-    bio = models.CharField(max_length=1000, blank=True) 
     image = models.ImageField(upload_to="uploads/profile", default="default.jpg", null=True, blank=True)
+    user_creation_date = models.DateField(auto_now_add=True, blank=True, null=True)
     verified = models.BooleanField(default=False)
 
     def __str__(self):

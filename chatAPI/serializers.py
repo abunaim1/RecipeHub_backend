@@ -6,7 +6,7 @@ class ProfileSerializer(serializers.ModelSerializer):
     user = UserSerializers(read_only=True)
     class Meta:
         model = Profile
-        fields = ['id', 'user', 'full_name', 'image']
+        fields = '__all__'
 
 class ChatGroupSerializers(serializers.ModelSerializer):
     class Meta:

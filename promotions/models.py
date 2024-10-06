@@ -7,7 +7,7 @@ class Promotions(models.Model):
     price = models.IntegerField(blank=True, null=True)
     description = models.TextField()
     image = models.ImageField(upload_to='uploads/promotions/')
-    product_count = models.IntegerField()
+    product_count = models.IntegerField(blank=True, null=True)
 
     def __str__(self) -> str:
         return self.title

@@ -40,8 +40,6 @@ class ChatGroupViewset(viewsets.ModelViewSet):
     queryset = ChatGroup.objects.all()
     serializer_class = ChatGroupSerializers
 
-
-
 class GroupMessageViewSet(viewsets.ModelViewSet):
     queryset = GroupMessage.objects.all()
     serializer_class = GroupMessageSerializer

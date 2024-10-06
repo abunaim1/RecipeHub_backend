@@ -15,8 +15,7 @@ class PremimumPodcast(models.Model):
     image = models.ImageField(upload_to='uploads/podcast/')
     keyword = models.CharField(max_length=20)
     description = models.TextField()
-    subscription = models.OneToOneField(Subscription, on_delete=models.CASCADE)
-
+    
     def __str__(self):
         return self.name
 

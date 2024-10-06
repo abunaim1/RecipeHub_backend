@@ -14,12 +14,11 @@ class PodcastEpisodeNormal(models.Model):
 
 class PodcastEpisodePremium(models.Model):
     title = models.CharField(max_length=200)
-    description = models.TextField()
     audio = models.FileField(upload_to='podcasts/')
     author_name = models.CharField(max_length=100)
-    publish_date = models.DateTimeField(auto_now_add=True)
+    episode_time = models.CharField(max_length=30, null=True, blank=True)
     podcast = models.ForeignKey(PremimumPodcast, on_delete=models.CASCADE)
-
+    image = models.ImageField(upload_to='uploads/podcast/', null=True, blank=True)
     def __str__(self):
         return self.title
     
