@@ -1,5 +1,5 @@
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 from datetime import timedelta
@@ -226,13 +226,11 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'aabunnaim@gmail.com'
 EMAIL_HOST_PASSWORD = 'zuvbkyxloadtcpwv'
 
-
 CHANNEL_LAYERS = {
-    "default": {
-        "BACKEND": "channels_redis.core.RedisChannelLayer",
-        "CONFIG": {
-            "hosts": [("127.0.0.1", 6379)],
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [("redis://red-ctlvmd3tq21c73f5jveg:6379", 6379)],
         },
     },
 }
-
