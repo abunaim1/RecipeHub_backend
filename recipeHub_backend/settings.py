@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'subscription',
     'support',
     'chatAPI',
+    'masterChef',
 
 
     "corsheaders",
