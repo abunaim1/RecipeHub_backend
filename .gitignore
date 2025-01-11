@@ -1,1 +1,2 @@
-masterChef/.env 
+masterChef/.env
+rm -f .git/index.lock
