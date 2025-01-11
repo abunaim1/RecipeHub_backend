@@ -3,9 +3,8 @@ from decouple import config
 from langchain_core.prompts import ChatPromptTemplate, SystemMessagePromptTemplate, HumanMessagePromptTemplate
 
 KEY = config("Hugging_Face")
-print(KEY)
 repo_id = "mistralai/Mistral-7B-Instruct-v0.3"
-llm = HuggingFaceEndpoint(repo_id=repo_id, huggingfacehub_api_token="KEY")
+llm = HuggingFaceEndpoint(repo_id=repo_id, huggingfacehub_api_token=KEY)
 
 chat = ChatHuggingFace(llm=llm)
 
